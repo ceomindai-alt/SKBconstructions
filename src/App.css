@@ -1,0 +1,119 @@
+/* GLOBAL TEXT COLOR */
+body, p, h1, h2, h3, h4, h5, h6, span, a, li, label, button, input, div {
+  color: #0A3A66 !important;
+  text-shadow: 1px 1px 0px #F59A2B;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+a:hover {
+  color: #F59A2B !important;
+}
+
+/* BUTTONS */
+button {
+  background-color: #0A3A66 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-shadow: none !important;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #F59A2B !important;
+  color: #fff !important;
+}
+
+/* INPUT FIELDS */
+input, textarea, select {
+  border: 1px solid #0A3A66 !important;
+  padding: 10px;
+  border-radius: 6px;
+  outline: none;
+  color: #0A3A66 !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #F59A2B !important;
+}
+
+/* HEADINGS SPECIAL STYLE */
+h1, h2, h3 {
+  font-weight: 700 !important;
+  text-shadow: 2px 2px 0px #F59A2B !important;
+}
+
+/* BLUE SECTION BACKGROUND */
+.section-blue {
+  background-color: #0A3A66 !important;
+  color: white !important;
+  text-shadow: none !important;
+}
+
+/* ORANGE TEXT HIGHLIGHT */
+.text-orange {
+  color: #F59A2B !important;
+  text-shadow: none !important;
+}
+
+/* LOGO SPECIAL STYLE */
+.logo-text {
+  color: #0A3A66 !important;
+  text-shadow: 2px 2px #F59A2B !important;
+}
+
+/* PREMIUM BUTTON ANIMATIONS */
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-animated::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-30deg);
+  transition: 0.4s ease;
+}
+
+.btn-animated:hover::after {
+  left: 120%;
+}
+
+.btn-animated:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 20px rgba(245, 154, 43, 0.4);
+}
+
+/* PREMIUM CARD SHADOWS */
+.card-premium {
+  transition: all 0.35s ease-in-out;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(10, 58, 102, 0.25);
+  border-color: #F59A2B !important;
+}
+
+/* Gallery Modal Brand Look */
+.modal-brand {
+  border: 4px solid #F59A2B;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(245, 154, 43, 0.4);
+}
