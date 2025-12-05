@@ -117,3 +117,15 @@ h1, h2, h3 {
   border-radius: 16px;
   box-shadow: 0 0 40px rgba(245, 154, 43, 0.4);
 }
+.heading-white {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+.subtext-light {
+  color: #cfe4ff !important;
+  text-shadow: none !important;
+}
+.text-orange-custom {
+  color: #ffb347 !important;
+  text-shadow: none !important;
+}

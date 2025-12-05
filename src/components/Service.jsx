@@ -4,49 +4,52 @@ import croad from "../assets/img/croad.png";
 import proad from "../assets/img/proad.png";
 import mroad from "../assets/img/mroad.png";
 import hroad from "../assets/img/hroad.png";
-import droad from "../assets/img/droad.png";
+import t from "../assets/img/t.jpeg"
+import m from "../assets/img/m.jpeg"
+import c from "../assets/img/c.jpeg"
+import d from "../assets/img/d.jpeg"
 
 export default function Service() {
   const services = [
     {
       title: "Road Works",
-      desc: "Professional road construction and maintenance with durable quality.",
+      desc: "Professional road construction and maintenance with durable quality. We ensure long-lasting, stable, and smooth road development for all types of terrains.",
       img: road,
     },
     {
       title: "Tar Road Constructions",
-      desc: "High-quality tar road laying with advanced machinery.",
-      img: troad,
+      desc: "High-quality tar road laying using advanced equipment for a strong and durable finish that withstands heavy traffic and climate conditions.",
+      img: t,
     },
     {
       title: "Concrete Road Constructions",
-      desc: "Long-lasting concrete roads engineered for heavy load conditions.",
-      img: croad,
+      desc: "Engineered concrete roads designed for high load capacity, long life, and enhanced durability for commercial, residential, and industrial areas.",
+      img: c,
     },
     {
       title: "Waste Plastic Road Constructions",
-      desc: "Eco-friendly roads built using recycled plastic technology.",
+      desc: "Eco-friendly roads built using recycled plastic technology, improving road strength and reducing environmental impact.",
       img: proad,
     },
     {
       title: "Mastic Tar Road Constructions",
-      desc: "Premium mastic-based road surfacing for superior durability.",
-      img: mroad,
+      desc: "Premium mastic tar surfacing ensures crack-free, skid-resistant, and waterproof roads for long-term performance.",
+      img: m,
     },
     {
       title: "Hot Thermoplastic Road Marking",
-      desc: "High visibility thermoplastic markings for highways & city roads.",
+      desc: "High-visibility thermoplastic road markings designed for highways, city roads, and safety zones with long-lasting brightness.",
       img: hroad,
     },
     {
       title: "Drainage Works",
-      desc: "Efficient drainage systems for residential, commercial & city areas.",
-      img: droad,
+      desc: "Efficient drainage system planning and execution for residential, commercial, and municipal areas with high precision.",
+      img: d,
     },
   ];
 
   return (
-    <div id="services" className="py-20 px-6 bg-orange-300">
+    <div id="services" className="py-20 px-6 bg-orange-500">
       <h2
         className="text-4xl font-bold text-center mb-12 text-blue-800"
         data-aos="fade-up"

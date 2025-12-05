@@ -1,20 +1,26 @@
 import { useState } from "react";
+import v from "../assets/img/v.mp4";
+import f from "../assets/img/fam.jpeg";
+import m from "../assets/img/m.jpeg";
+import d from "../assets/img/d.jpeg";
+import t from "../assets/img/t.jpeg";
+
 
 export default function Gallery() {
 
   const galleryItems = [
-    { type: "image", src: "/gallery/img1.jpg" },
-    { type: "image", src: "/gallery/img2.jpg" },
-    { type: "image", src: "/gallery/img3.jpg" },
-    { type: "image", src: "/gallery/img4.jpg" },
+    { type: "image", src: t },
+    { type: "image", src: f },
+    { type: "image", src: d },
+    { type: "image", src: m },
     { type: "video", src: "/gallery/video1.mp4" },
-    { type: "video", src: "/gallery/video2.mp4" },
+    { type: "video", src: v },
   ];
 
   const [selectedItem, setSelectedItem] = useState(null);
 
   return (
-    <div className="py-20 px-6 bg-orange-500
+    <div className="py-20 px-6 bg-orange-300
     " id="gallery">
       
       <h2 

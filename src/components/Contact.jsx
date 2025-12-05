@@ -8,175 +8,185 @@ export default function Contact() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false); // Success UI
 
-  const whatsappNumber = "919940744382"; // Your WhatsApp number
-  const googleSheetsURL = "https://script.google.com/macros/s/AKfycbyE_nZPNHGA2bewuf_pwcAbNvtvmOfwwkWs8e2JCI6yvbElNZ7gK56rOmoNNnly7IQ/exec"; // Replace
-// AKfycbyE_nZPNHGA2bewuf_pwcAbNvtvmOfwwkWs8e2JCI6yvbElNZ7gK56rOmoNNnly7IQ
-// google sheet id
+  const googleSheetsURL =
+    "https://script.google.com/macros/s/AKfycbyE_nZPNHGA2bewuf_pwcAbNvtvmOfwwkWs8e2JCI6yvbElNZ7gK56rOmoNNnly7IQ/exec";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     const formData = {
       name: fullName,
-      email: email,
-      phone: phone,
-      message: message,
+      email,
+      phone,
+      message,
     };
 
-    // 1. Send Email using EmailJS
+    // EmailJS
     try {
       await emailjs.send(
-        //"YOUR_EMAILJS_SERVICE_ID",
         "service_zuniol3",
-        //"YOUR_EMAILJS_TEMPLATE_ID",
         "template_m48blck",
         formData,
-        //"YOUR_EMAILJS_PUBLIC_KEY"
         "tpeyyKcqgk8nnrvyr"
       );
-      console.log("Email sent");
     } catch (error) {
-      console.log("Email Error:", error);
+      console.log("Email error:", error);
     }
 
-    // 2. Save to Google Sheets
+    // Google Sheet
     try {
       await fetch(googleSheetsURL, {
-  method: "POST",
-  mode: "no-cors",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(formData)
-});
-
-      console.log("Saved to Google Sheet");
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
     } catch (error) {
       console.log("Google Sheet Error:", error);
     }
 
-    // 3. Send to WhatsApp
-    const text = `New Contact Form Submission:
-Name: ${fullName}
-Email: ${email}
-Phone: ${phone}
-Message: ${message}`;
-
-    const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
-    window.open(waUrl, "_blank");
-
+    // SUCCESS LOTTIE POPUP
     setLoading(false);
+    setSuccess(true);
+
+    // Clear form
+    setFullName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+
+    // Hide animation after 3 sec
+    setTimeout(() => setSuccess(false), 3000);
   };
 
   return (
-    <div className="w-full bg-orange-500 
-py-12 px-4 sm:px-6 lg:px-10 ">
-      
+    <div className="w-full bg-orange-300 py-12 px-4 sm:px-6 lg:px-10">
+
+      {/* SUCCESS LOTTIE MODAL */}
+      {success && (
+        <div className="
+          fixed inset-0 
+          flex items-center justify-center 
+          bg-black/40 backdrop-blur-sm
+          z-[9999]
+        ">
+          <div className="bg-white rounded-2xl shadow-2xl p-6 flex flex-col items-center animate-scaleUp">
+
+            <lottie-player
+              src="https://assets9.lottiefiles.com/packages/lf20_jbrw3hcz.json"
+              background="transparent"
+              speed="1"
+              style={{ width: "150px", height: "150px" }}
+              autoplay
+            >
+            </lottie-player>
+
+            <h3 className="text-green-600 text-2xl font-bold mt-3">
+              Message Sent!
+            </h3>
+            <p className="text-gray-700 text-sm mt-1">Thank you for contacting us.</p>
+          </div>
+        </div>
+      )}
+
+      {/* PAGE TITLE */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-blue-800">Contact Us</h1>
         <p className="text-black mt-2">We are here to help. Reach out anytime.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-        {/* Left Section */}
+        {/* LEFT */}
         <div className="space-y-6">
-          <div>
-            <h2 className="text-xl font-semibold text-blue-800">Get in Touch</h2>
-            <p className="mt-2 text-black">Contact our team for any questions or support.</p>
-          </div>
+          <h2 className="text-xl font-semibold text-blue-800">Get in Touch</h2>
+          <p className="text-black">Contact our team for any support.</p>
 
           <div className="space-y-4 text-black">
             <p>
-              <span className="font-semibold text-blue-800">Address:</span><br />
-              ABC street, Tamil Nadu 600000
+              <strong className="text-blue-800">Address:</strong><br />
+              No.6, Aarani Road, Arni X Road, Cheyyar – 604407
             </p>
             <p>
-              <span className="font-semibold text-blue-800">Phone:</span><br />
-              +91 9940744382
+              <strong className="text-blue-800">Phone:</strong><br />
+              +91 9500742445
             </p>
             <p>
-              <span className="font-semibold text-blue-800">Email:</span><br />
+              <strong className="text-blue-800">Email:</strong><br />
               support@mywebsite.com
             </p>
           </div>
 
           <div className="w-full h-64 rounded-xl overflow-hidden shadow">
             <iframe
-              title="Map Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.928540535912!2d80.06703857507677!3d12.914056787388175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fab45bb3e89%3A0x98ce090daac9569f!2sVandalur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1712219838541"
-              width="100%"
-              height="100%"
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
+  title="Map Location"
+  src="https://www.google.com/maps?q=SKB+CONSTRUCTIONS+Cheyyar&output=embed"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  loading="lazy"
+  allowFullScreen
+  referrerPolicy="no-referrer-when-downgrade"
+/>
+
           </div>
         </div>
 
-        {/* Right Section */}
-        <div className="bg-orange-300
- p-8 rounded-xl shadow space-y-6">
+        {/* RIGHT: CONTACT FORM */}
+        <div className="bg-orange-400 p-8 rounded-xl shadow space-y-6">
 
           <h2 className="text-2xl font-semibold text-blue-900">Send Us a Message</h2>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
+            
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Full Name"
+              required
+              className="w-full p-3 rounded-lg bg-orange-200 border"
+            />
 
-            <div>
-              <label className="block text-sm font-medium text">Full Name</label>
-              <input 
-                type="text"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                required
-                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:border-blue-400 bg-orange-200"
-              />
-            </div>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+              className="w-full p-3 rounded-lg bg-orange-200 border"
+            />
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Email</label>
-              <input 
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:border-blue-400 bg-orange-200"
-              />
-            </div>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Phone Number"
+              required
+              className="w-full p-3 rounded-lg bg-orange-200 border"
+            />
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Phone Number</label>
-              <input 
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:border-blue-400 bg-orange-200"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Message</label>
-              <textarea 
-                rows="4"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:border-blue-400 bg-orange-200"
-              ></textarea>
-            </div>
+            <textarea
+              rows="4"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Message"
+              required
+              className="w-full p-3 rounded-lg bg-orange-200 border"
+            />
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
               disabled={loading}
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
 
           </form>
         </div>
-
       </div>
     </div>
   );

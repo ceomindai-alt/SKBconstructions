@@ -7,9 +7,12 @@ import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import Home from "./components/Home";
 import About from "./components/About";
+import Project from "./components/Project";
 import Gallery from "./components/Gallery";
 import Service from "./components/Service";
 import Contact from "./components/Contact";
+import WhatsAppFloat from "./components/WhatsAppFloat";
+
 
 export default function App() {
   useEffect(() => {
@@ -23,9 +26,11 @@ export default function App() {
       <main className="flex-grow">
         <section id="home"><Home /></section>
         <section id="about"><About /></section>
+        <section id="projects"><Project /></section>
         <section id="gallery"><Gallery /></section>
         <section id="services"><Service /></section>
         <section id="contact"><Contact /></section>
+        <section id="whatsappfloat"><WhatsAppFloat /></section>
       </main>
 
       <Footer />
