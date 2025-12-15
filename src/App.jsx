@@ -12,6 +12,7 @@ import Gallery from "./components/Gallery";
 import Service from "./components/Service";
 import Contact from "./components/Contact";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import Reviews from "./components/Reviews";
 
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
         <section id="projects"><Project /></section>
         <section id="gallery"><Gallery /></section>
         <section id="services"><Service /></section>
+        <section id="review"><Reviews /></section>
         <section id="contact"><Contact /></section>
         <section id="whatsappfloat"><WhatsAppFloat /></section>
       </main>

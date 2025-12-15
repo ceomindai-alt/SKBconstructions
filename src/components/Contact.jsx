@@ -63,7 +63,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full bg-orange-300 py-12 px-4 sm:px-6 lg:px-10">
+    <div className="w-full bg-orange-500 py-12 px-4 sm:px-6 lg:px-10">
 
       {/* SUCCESS LOTTIE MODAL */}
       {success && (

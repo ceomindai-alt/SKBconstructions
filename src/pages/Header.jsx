@@ -69,7 +69,7 @@ export default function Header() {
 
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex gap-8 font-medium">
+          <nav className="hidden md:flex  gap-8 font-medium">
             {sections.map((item) => (
               <button
                 key={item}
@@ -95,7 +95,7 @@ export default function Header() {
 
           {/* Mobile Toggle */}
           <button
-            className={`md:hidden p-2 transition-all duration-300 text-xl bg-transparent border-none
+            className={`md:hidden p-2 transition-all  duration-300 text-xl bg-transparent border-none
             ${isScrolled ? "text-blue-800" : "text-white"}`}
             onClick={() => setOpen(!open)}
           >
@@ -107,7 +107,7 @@ export default function Header() {
       {/* Mobile Menu */}
       {open && (
         <div
-          className={`md:hidden w-full shadow-lg transition-all duration-300
+          className={`md:hidden w-full shadow-lg transition-all duration-300 
           bg-white`}
         >
           <nav className="flex flex-col px-4 py-4 space-y-4 text-blue-900 font-medium">

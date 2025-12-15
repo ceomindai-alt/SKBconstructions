@@ -9,7 +9,7 @@ import t from "../assets/img/t.jpeg";
 export default function Gallery() {
 
   const galleryItems = [
-    { type: "image", src: t },
+    { type: "image", src: t    },
     { type: "image", src: f },
     { type: "image", src: d },
     { type: "image", src: m },
