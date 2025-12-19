@@ -13,6 +13,7 @@ import Service from "./components/Service";
 import Contact from "./components/Contact";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 import Reviews from "./components/Reviews";
+import LazySection from "./components/LazySection";
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col min-h-screen scroll-smooth antialiased text-gray-800">
+      <LazySection>
       <Header />
 
       <main className="flex-grow">
@@ -36,6 +38,7 @@ export default function App() {
       </main>
 
       <Footer />
+      </LazySection>
     </div>
   );
 }
